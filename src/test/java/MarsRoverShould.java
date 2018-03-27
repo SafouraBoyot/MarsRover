@@ -11,7 +11,7 @@ public class MarsRoverShould {
     public void
     announce_new_position_of_a_rover() {
 
-
+        Report report = new Report(formatter, outPutInterface)
         Grid grid = new Grid();
         String inputCommand = "5 5\n" +
                 "1 2 N\n" +
