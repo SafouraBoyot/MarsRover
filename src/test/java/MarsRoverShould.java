@@ -5,19 +5,20 @@ import static org.mockito.Mockito.verify;
 
 public class MarsRoverShould {
     @Mock
-    OutPutInterface outPutInterface;
+    private OutPutInterface outPutInterface;
 
     @Test
     public void
     announce_new_position_of_a_rover() {
 
-        Report report = new Report(formatter, outPutInterface)
+        StringFormatter formatter = new StringFormatter();
+        Reporter report = new Reporter(formatter, outPutInterface);
         Grid grid = new Grid();
         String inputCommand = "5 5\n" +
                 "1 2 N\n" +
                 "LMLMLMLMM\n";
 
-        MarsRover marsRover = new MarsRover(grid);
+        MarsRover marsRover = new MarsRover(grid, report);
         marsRover.execute(inputCommand);
 
 

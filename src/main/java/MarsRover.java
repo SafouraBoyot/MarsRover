@@ -1,17 +1,19 @@
 public class MarsRover {
     private final Grid grid;
+    private final Reporter reporter;
 
-    public MarsRover(Grid grid) {
+    public MarsRover(Grid grid, Reporter reporter) {
         this.grid = grid;
+        this.reporter = reporter;
     }
 
     public void execute(String inputCommand) {
         InputCommand command = InputParser.parse(inputCommand);
-        grid.size(command.gridSize());
+        grid.size(command.gridDimensions());
         Rover rover = new Rover(command.position());
 
-        Rover newRover = grid.move(rover, command.navigationInstruction());
+        grid.move(rover, command.navigationInstruction());
 
-
+        reporter.print(rover);
     }
 }

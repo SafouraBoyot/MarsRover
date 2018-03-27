@@ -1,14 +1,12 @@
 public class Grid {
-    int[][] grid;
+    private int[][] grid;
     private int dimensions;
 
-
-
-    public void size(int size) {
-            grid = new int[size][size];
+    public void size(Dimensions dimensions) {
+            grid = new int[dimensions.width()][dimensions.height()];
     }
 
-    public Rover move(Rover rover, String navigationInstruction) {
+    public void move(Rover rover, String navigationInstruction) {
         throw new UnsupportedOperationException();
     }
 }
