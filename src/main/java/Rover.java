@@ -11,14 +11,13 @@ public class Rover {
 
     public void rotateRight() {
         position.direction(position.direction().right());
-
     }
 
     public void rotateLeft() {
         position.direction(position.direction().left());
     }
 
-    public void changeCoordinate(Coordinate coordinate) {
+    public void updateCoordinate(Coordinate coordinate) {
         position.coordinate(coordinate);
     }
 

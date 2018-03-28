@@ -1,8 +1,7 @@
-public class Reporter {
+public class Report {
+    private final OutputInterface output;
 
-    private final OutPutInterface output;
-
-    public Reporter( OutPutInterface output) {
+    public Report(OutputInterface output) {
         this.output = output;
     }
 

@@ -24,7 +24,7 @@ public class RoverShould {
     change_coordinate(){
         Rover rover = new Rover(new Position(new Coordinate(1, 2), Direction.NORTH));
 
-        rover.changeCoordinate(new Coordinate(1,3));
+        rover.updateCoordinate(new Coordinate(1,3));
         assertEquals(rover.position().coordinate(), new Coordinate(1,3));
     }
 }

@@ -1,29 +1,21 @@
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
 
-import static org.mockito.Mockito.verify;
-@RunWith(MockitoJUnitRunner.class)
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
+
 public class MarsRoverShould {
-    @Mock
-    private OutPutInterface outPutInterface;
-
     @Test
     public void
     announce_new_position_of_a_rover() {
-
-
-        Reporter report = new Reporter(outPutInterface);
-        Grid grid = new Grid(new Dimensions(5,5));
         String inputCommand = "5 5\n" +
                 "1 2 N\n" +
                 "LMLMLMLMM\n";
 
-        MarsRover marsRover = new MarsRover(grid, report);
-        marsRover.execute(inputCommand);
+        MarsRover marsRover = new MarsRover();
 
+        Position expectedPosition = new Position(new Coordinate(1, 3), Direction.NORTH);
+        Position actualPosition = marsRover.execute(inputCommand);
 
-        verify(outPutInterface).print("1 3 N");
+        assertThat(actualPosition, is(expectedPosition));
     }
 }
