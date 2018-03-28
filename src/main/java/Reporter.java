@@ -1,14 +1,12 @@
 public class Reporter {
-    private final StringFormatter formatter;
+
     private final OutPutInterface output;
 
-    public Reporter(StringFormatter formatter, OutPutInterface output) {
-        this.formatter = formatter;
+    public Reporter( OutPutInterface output) {
         this.output = output;
     }
 
     public void print(Rover rover) {
-        String formattedPosition = formatter.format(rover.position());
-        output.print(formattedPosition);
+        output.print(rover.position().toString());
     }
 }

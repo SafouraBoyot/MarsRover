@@ -1,8 +1,8 @@
 public enum Direction {
-    NORTH("NORTH", "WEST", "EAST"),
-    SOUTH("SOUTH", "EAST", "WEST"),
-    EAST("EAST", "NORTH", "SOUTH"),
-    WEST("WEST", "SOUTH", "NORTH");
+    NORTH("N", "W", "E"),
+    SOUTH("S", "E", "W"),
+    EAST("E", "N", "S"),
+    WEST("W", "S", "N");
 
 
     private final String current;

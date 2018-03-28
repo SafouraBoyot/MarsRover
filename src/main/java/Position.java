@@ -42,4 +42,9 @@ public class Position {
 
         return Objects.hash(coordinate, direction);
     }
+
+    @Override
+    public String toString() {
+        return coordinate.x()+" "+coordinate.y()+" "+direction.current();
+    }
 }
