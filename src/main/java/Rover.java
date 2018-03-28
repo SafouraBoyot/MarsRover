@@ -10,11 +10,12 @@ public class Rover {
     }
 
     public void rotateRight() {
-        throw new UnsupportedOperationException();
+        position.direction(position.direction().right());
+
     }
 
     public void rotateLeft() {
-        throw new UnsupportedOperationException();
+        position.direction(position.direction().left());
     }
 
     public void changeCoordinate(Coordinate coordinate) {
