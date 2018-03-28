@@ -17,6 +17,10 @@ public class Grid {
                 rover.changeCoordinate(new Coordinate(coordinate.x(), coordinate.y() + 1));
             if (rover.position().direction().equals(Direction.SOUTH))
                 rover.changeCoordinate(new Coordinate(coordinate.x(), coordinate.y() - 1));
+            if (rover.position().direction().equals(Direction.EAST))
+                rover.changeCoordinate(new Coordinate(coordinate.x()+1, coordinate.y() ));
+            if (rover.position().direction().equals(Direction.WEST))
+                rover.changeCoordinate(new Coordinate(coordinate.x()-1, coordinate.y()));
         }
 
 
