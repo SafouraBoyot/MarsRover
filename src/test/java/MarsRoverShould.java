@@ -13,7 +13,7 @@ public class MarsRoverShould {
 
         StringFormatter formatter = new StringFormatter();
         Reporter report = new Reporter(formatter, outPutInterface);
-        Grid grid = new Grid();
+        Grid grid = new Grid(new Dimensions(5,5));
         String inputCommand = "5 5\n" +
                 "1 2 N\n" +
                 "LMLMLMLMM\n";

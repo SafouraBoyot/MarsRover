@@ -10,7 +10,6 @@ public class MarsRover {
 
     public void execute(String inputCommand) {
         InputCommand command = InputParser.parse(inputCommand);
-        grid.size(command.gridDimensions());
         Rover rover = new Rover(command.position());
 
         grid.move(rover, command.navigationInstructions());

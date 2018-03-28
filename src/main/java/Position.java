@@ -9,6 +9,15 @@ public class Position {
         this.direction = direction;
     }
 
+
+    public Coordinate coordinate() {
+        return coordinate;
+    }
+
+    public Direction direction() {
+        return direction;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

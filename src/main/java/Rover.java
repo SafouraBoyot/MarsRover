@@ -17,6 +17,10 @@ public class Rover {
         throw new UnsupportedOperationException();
     }
 
+    public void changeCoordinate(Coordinate coordinate) {
+        throw new UnsupportedOperationException();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -31,5 +35,4 @@ public class Rover {
     public int hashCode() {
         return position != null ? position.hashCode() : 0;
     }
-
 }
