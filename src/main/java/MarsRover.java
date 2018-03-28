@@ -12,7 +12,7 @@ public class MarsRover {
         grid.size(command.gridDimensions());
         Rover rover = new Rover(command.position());
 
-        grid.move(rover, command.navigationInstruction());
+        grid.move(rover, command.navigationInstructions());
 
         reporter.print(rover);
     }

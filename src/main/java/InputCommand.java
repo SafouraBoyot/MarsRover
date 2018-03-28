@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class InputCommand {
     private final Dimensions gridDimensions;
     private final Position position;
@@ -10,14 +12,30 @@ public class InputCommand {
     }
 
     public Dimensions gridDimensions() {
-        throw new UnsupportedOperationException();
+        return gridDimensions;
     }
 
     public Position position() {
-            throw new UnsupportedOperationException();
+        return position;
     }
 
-    public String navigationInstruction() {
-        throw new UnsupportedOperationException();
+    public String navigationInstructions() {
+        return navigationInstructions;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        InputCommand that = (InputCommand) o;
+        return Objects.equals(gridDimensions, that.gridDimensions) &&
+                Objects.equals(position, that.position) &&
+                Objects.equals(navigationInstructions, that.navigationInstructions);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(gridDimensions, position, navigationInstructions);
     }
 }
