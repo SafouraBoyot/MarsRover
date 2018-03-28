@@ -19,7 +19,7 @@ public class Rover {
     }
 
     public void changeCoordinate(Coordinate coordinate) {
-        throw new UnsupportedOperationException();
+        position.coordinate(coordinate);
     }
 
     @Override

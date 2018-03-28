@@ -1,8 +1,8 @@
 import java.util.Objects;
 
 public class Position {
-    private final Coordinate coordinate;
-    private  Direction direction;
+    private Coordinate coordinate;
+    private Direction direction;
 
     public Position(Coordinate coordinate, Direction direction) {
         this.coordinate = coordinate;
@@ -20,6 +20,12 @@ public class Position {
 
     public void direction(Direction direction) {
         this.direction = direction;
+    }
+
+
+
+    public void coordinate(Coordinate coordinate) {
+        this.coordinate = coordinate;
     }
 
     @Override

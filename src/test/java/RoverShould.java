@@ -19,4 +19,12 @@ public class RoverShould {
         rover.rotateLeft();
         assertEquals(Direction.WEST, rover.position().direction());
     }
+
+    @Test public void
+    change_coordinate(){
+        Rover rover = new Rover(new Position(new Coordinate(1, 2), Direction.NORTH));
+
+        rover.changeCoordinate(new Coordinate(1,3));
+        assertEquals(rover.position().coordinate(), new Coordinate(1,3));
+    }
 }
