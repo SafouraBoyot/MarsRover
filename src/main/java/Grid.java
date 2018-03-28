@@ -7,6 +7,7 @@ public class Grid {
     }
 
     public void move(Rover rover, String navigationInstruction) {
-        throw new UnsupportedOperationException();
+        if(navigationInstruction.equals("R")) rover.rotateRight();
+        if(navigationInstruction.equals("L")) rover.rotateLeft();
     }
 }

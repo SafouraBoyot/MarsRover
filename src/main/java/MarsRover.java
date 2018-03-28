@@ -7,6 +7,7 @@ public class MarsRover {
         this.reporter = reporter;
     }
 
+
     public void execute(String inputCommand) {
         InputCommand command = InputParser.parse(inputCommand);
         grid.size(command.gridDimensions());
