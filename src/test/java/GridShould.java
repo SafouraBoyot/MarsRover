@@ -1,55 +1,36 @@
-import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
 
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
 
-@RunWith(MockitoJUnitRunner.class)
 public class GridShould {
-    @Mock
-    private Rover rover;
 
-    private Grid grid;
 
+    @Test
+    public void
+    return_dimensions() {
+
+        Grid actualGrid = new Grid(new Dimensions(5,5));
+        Dimensions expectedDimensions = new Dimensions(5,5);
+
+        Dimensions actualDimensions = actualGrid.dimensions();
+
+        assertThat(actualDimensions,is(expectedDimensions));
+    }
+
+
+
+
+
+/*
     @Before
     public void
     setUp() {
         this.grid = new Grid(new Dimensions(5,5));
-    }
+    }*/
 
-    @Test
-    public void
-    rotate_rover_right() {
-        when(rover.position()).thenReturn(new Position(new Coordinate(1, 2), Direction.NORTH));
 
-        grid.move(rover, "R");
-
-        verify(rover).rotateRight();
-    }
-
-    @Test
-    public void
-    rotate_rover_left() {
-        when(rover.position()).thenReturn(new Position(new Coordinate(1, 2), Direction.NORTH));
-
-        grid.move(rover, "L");
-
-        verify(rover).rotateLeft();
-    }
-
-    @Test public void
-    move_rover(){
-        when(rover.position()).thenReturn(new Position(new Coordinate(1, 2), Direction.NORTH));
-
-        grid.move(rover, "M");
-
-        verify(rover).updateCoordinate();
-    }
-
-    @Test
+    /*@Test
     public void
     move_rover_based_on_multiple_commands() {
         Position positionBefore = new Position(new Coordinate(1, 2), Direction.NORTH);
@@ -57,7 +38,7 @@ public class GridShould {
         when(rover.position()).thenReturn(positionBefore)
                 .thenReturn(positionAfter);
 
-        grid.move(rover, "RM");
+        rover.move(rover, "RM");
 
         verify(rover).updateCoordinate();
     }
@@ -69,7 +50,7 @@ public class GridShould {
 
         when(rover.position()).thenReturn(position);
 
-        grid.move(rover, "M");
+        rover.move(rover, "M");
 
         verify(rover).updateCoordinate();
     }
@@ -81,9 +62,9 @@ public class GridShould {
 
         when(rover.position()).thenReturn(position);
 
-        grid.move(rover, "M");
+        rover.move(rover, "M");
 
         verify(rover).updateCoordinate();
-    }
+    }*/
 }
 

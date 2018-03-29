@@ -1,7 +1,8 @@
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
 
 public class RoverShould {
     private Grid grid;
@@ -17,9 +18,9 @@ public class RoverShould {
     rotate_right() {
         Rover rover = new Rover(grid, new Position(new Coordinate(1, 2), Direction.NORTH));
 
-        rover.rotateRight();
-        
-        assertEquals(Direction.EAST, rover.position().direction());
+        rover.move("R");
+
+        assertThat( rover.position().direction(),is(Direction.EAST));
     }
 
     @Test
@@ -27,9 +28,9 @@ public class RoverShould {
     rotate_left() {
         Rover rover = new Rover(grid, new Position(new Coordinate(1, 2), Direction.NORTH));
 
-        rover.rotateLeft();
+        rover.move("L");
 
-        assertEquals(Direction.WEST, rover.position().direction());
+        assertThat(rover.position().direction(),is(Direction.WEST));
     }
 
     @Test
@@ -37,9 +38,9 @@ public class RoverShould {
     change_coordinate() {
         Rover rover = new Rover(grid, new Position(new Coordinate(1, 2), Direction.NORTH));
 
-        rover.updateCoordinate();
+        rover.move("M");
         Coordinate actualCoordinate = rover.position().coordinate();
 
-        assertEquals(actualCoordinate, new Coordinate(1, 3));
+        assertThat(actualCoordinate, is(new Coordinate(1, 3)));
     }
 }

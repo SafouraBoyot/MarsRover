@@ -11,6 +11,14 @@ public class Rover {
         this.position = position;
     }
 
+    public void move( String navigationInstructions) {
+        for (Character navigationInstruction : navigationInstructions.toCharArray()) {
+            if (navigationInstruction.equals('R')) this.rotateRight();
+            if (navigationInstruction.equals('L')) this.rotateLeft();
+            if (navigationInstruction.equals('M')) this.updateCoordinate();
+        }
+    }
+
     public Position position() {
         return position;
     }

@@ -3,9 +3,9 @@ public class MarsRover {
         InputCommand command = InputParser.parse(inputCommand);
 
         Grid grid = new Grid(command.gridDimensions());
-        Rover rover = new Rover(grid,command.position());
+        Rover rover = new Rover(grid, command.position());
 
-        grid.move(rover, command.navigationInstructions());
+        rover.move(command.navigationInstructions());
 
         return rover.position();
     }
