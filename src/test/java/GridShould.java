@@ -46,7 +46,7 @@ public class GridShould {
 
         grid.move(rover, "M");
 
-        verify(rover).updateCoordinate(new Coordinate(1,3));
+        verify(rover).updateCoordinate();
     }
 
     @Test
@@ -59,7 +59,7 @@ public class GridShould {
 
         grid.move(rover, "RM");
 
-        verify(rover).updateCoordinate(new Coordinate(2,2));
+        verify(rover).updateCoordinate();
     }
 
     @Test
@@ -71,7 +71,7 @@ public class GridShould {
 
         grid.move(rover, "M");
 
-        verify(rover).updateCoordinate(new Coordinate(5,1));
+        verify(rover).updateCoordinate();
     }
 
     @Test
@@ -83,7 +83,7 @@ public class GridShould {
 
         grid.move(rover, "M");
 
-        verify(rover).updateCoordinate(new Coordinate(5,3));
+        verify(rover).updateCoordinate();
     }
 }
 
