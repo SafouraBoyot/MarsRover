@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Rover {
@@ -11,11 +13,15 @@ public class Rover {
         this.position = position;
     }
 
-    public void move( String navigationInstructions) {
+    public void move(String navigationInstructions) {
+        List<Command> commands = new ArrayList<>();
         for (Character navigationInstruction : navigationInstructions.toCharArray()) {
-            if (navigationInstruction.equals('R')) this.rotateRight();
-            if (navigationInstruction.equals('L')) this.rotateLeft();
-            if (navigationInstruction.equals('M')) this.updateCoordinate();
+            if (navigationInstruction.equals('R')) commands.add(new RotateRight(this));
+            if (navigationInstruction.equals('L')) commands.add(new RotateLeft(this));
+            if (navigationInstruction.equals('M')) commands.add(new MoveForwards(this));
+        }
+        for (Command c : commands) {
+            c.execute();
         }
     }
 
@@ -23,50 +29,8 @@ public class Rover {
         return position;
     }
 
-    public void rotateRight() {
-        position.direction(position.direction().right());
-    }
-
-    public void rotateLeft() {
-        position.direction(position.direction().left());
-    }
-
-    public void updateCoordinate() {
-        position.coordinate(nextCoordinateFor(position));
-    }
-
-
-    private Coordinate nextCoordinateFor(Position position) {
-        return new Coordinate(updatedX(position), updatedY(position));
-
-    }
-
-    private int updatedX(Position position) {
-        int x = position.coordinate().x();
-
-        if (position.direction().equals(Direction.EAST)) {
-            return x + 1 > grid.dimensions().width() ? 1 : x + 1;
-        }
-
-        if (position.direction().equals(Direction.WEST)) {
-            return x - 1 < 1 ? grid.dimensions().width() : x - 1;
-        }
-
-        return x;
-    }
-
-    private int updatedY(Position position) {
-        int y = position.coordinate().y();
-
-        if (position.direction().equals(Direction.NORTH)) {
-            return y + 1 > grid.dimensions().height() ? 1 : y + 1;
-        }
-
-        if (position.direction().equals(Direction.SOUTH)) {
-            return y - 1 < 1 ? grid.dimensions().height() : y - 1;
-        }
-
-        return y;
+    public Grid grid() {
+        return grid;
     }
 
     @Override

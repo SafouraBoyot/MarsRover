@@ -10,7 +10,7 @@ public class RoverShould {
     @Before
     public void
     setUp() {
-        grid = new Grid(new Dimensions(5, 5));
+        grid = new Grid(5, 5);
     }
 
     @Test
