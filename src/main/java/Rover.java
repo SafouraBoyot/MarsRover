@@ -14,23 +14,28 @@ public class Rover {
     }
 
     public void move(String navigationInstructions) {
-        List<Command> commands = new ArrayList<>();
-        for (Character navigationInstruction : navigationInstructions.toCharArray()) {
-            if (navigationInstruction.equals('R')) commands.add(new RotateRight(this));
-            if (navigationInstruction.equals('L')) commands.add(new RotateLeft(this));
-            if (navigationInstruction.equals('M')) commands.add(new MoveForwards(this));
-        }
+        List<Command> commands = getCommands(navigationInstructions);
         for (Command c : commands) {
             c.execute();
         }
     }
-
+    
     public Position position() {
         return position;
     }
 
     public Grid grid() {
         return grid;
+    }
+
+    private List<Command> getCommands(String navigationInstructions) {
+        List<Command> commands = new ArrayList<>();
+        for (Character navigationInstruction : navigationInstructions.toCharArray()) {
+            if (navigationInstruction.equals('R')) commands.add(new RotateRight(this));
+            if (navigationInstruction.equals('L')) commands.add(new RotateLeft(this));
+            if (navigationInstruction.equals('M')) commands.add(new MoveForwards(this));
+        }
+        return commands;
     }
 
     @Override
