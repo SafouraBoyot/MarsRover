@@ -1,3 +1,4 @@
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -31,9 +32,9 @@ public class Rover {
     private List<Command> getCommands(String navigationInstructions) {
         List<Command> commands = new ArrayList<>();
         for (Character navigationInstruction : navigationInstructions.toCharArray()) {
-            if (navigationInstruction.equals('R')) commands.add(new RotateRight(this));
-            if (navigationInstruction.equals('L')) commands.add(new RotateLeft(this));
-            if (navigationInstruction.equals('M')) commands.add(new MoveForwards(this));
+            if (navigationInstruction.equals(NavigationInstruction.RIGHT.value())) commands.add(new RotateRight(this));
+            if (navigationInstruction.equals(NavigationInstruction.LEFT.value())) commands.add(new RotateLeft(this));
+            if (navigationInstruction.equals(NavigationInstruction.MOVE_FORWARD.value())) commands.add(new MoveForwards(this));
         }
         return commands;
     }

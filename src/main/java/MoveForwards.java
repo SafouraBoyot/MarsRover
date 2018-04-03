@@ -10,10 +10,6 @@ public class MoveForwards implements Command {
         rover.position().coordinate(nextCoordinateFor(rover.position()));
 
     }
-    private void updateCoordinate() {
-        rover.position().coordinate(nextCoordinateFor(rover.position()));
-    }
-
 
     private Coordinate nextCoordinateFor(Position position) {
         return new Coordinate(updatedX(position), updatedY(position));
