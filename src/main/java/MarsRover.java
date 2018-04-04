@@ -2,10 +2,10 @@ public class MarsRover {
     public Position execute(String inputCommand) {
         InputCommand command = InputParser.parse(inputCommand);
 
-        Rover rover = new Rover(command.position());
-        Grid grid = new Grid(command.gridDimensions());
+        Rover rover = new Rover(command.gridDimensions(), command.position());
 
-        grid.move(rover, command.navigationInstructions());
+
+        rover.move(command.navigationInstructions());
 
         return rover.position();
     }

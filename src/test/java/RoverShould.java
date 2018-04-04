@@ -1,30 +1,46 @@
+import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
 
 public class RoverShould {
+    private Grid grid;
+
+    @Before
+    public void
+    setUp() {
+        grid = new Grid(5, 5);
+    }
+
     @Test
     public void
     rotate_right() {
-        Rover rover = new Rover(new Position(new Coordinate(1, 2), Direction.NORTH));
+        Rover rover = new Rover(grid, new Position(new Coordinate(1, 2), Direction.NORTH));
 
-        rover.rotateRight();
-        assertEquals(Direction.EAST, rover.position().direction());
+        rover.move("R");
+
+        assertThat( rover.position().direction(),is(Direction.EAST));
     }
 
-    @Test public void
-    rotate_left(){
-        Rover rover = new Rover(new Position(new Coordinate(1, 2), Direction.NORTH));
+    @Test
+    public void
+    rotate_left() {
+        Rover rover = new Rover(grid, new Position(new Coordinate(1, 2), Direction.NORTH));
 
-        rover.rotateLeft();
-        assertEquals(Direction.WEST, rover.position().direction());
+        rover.move("L");
+
+        assertThat(rover.position().direction(),is(Direction.WEST));
     }
 
-    @Test public void
-    change_coordinate(){
-        Rover rover = new Rover(new Position(new Coordinate(1, 2), Direction.NORTH));
+    @Test
+    public void
+    change_coordinate() {
+        Rover rover = new Rover(grid, new Position(new Coordinate(1, 2), Direction.NORTH));
 
-        rover.updateCoordinate(new Coordinate(1,3));
-        assertEquals(rover.position().coordinate(), new Coordinate(1,3));
+        rover.move("M");
+        Coordinate actualCoordinate = rover.position().coordinate();
+
+        assertThat(actualCoordinate, is(new Coordinate(1, 3)));
     }
 }

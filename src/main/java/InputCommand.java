@@ -1,18 +1,18 @@
 import java.util.Objects;
 
 public class InputCommand {
-    private final Dimensions gridDimensions;
+    private final Grid grid;
     private final Position position;
     private final String navigationInstructions;
 
-    public InputCommand(Dimensions gridDimensions, Position position, String navigationInstructions) {
-        this.gridDimensions = gridDimensions;
+    public InputCommand(Grid grid, Position position, String navigationInstructions) {
+        this.grid = grid;
         this.position = position;
         this.navigationInstructions = navigationInstructions;
     }
 
-    public Dimensions gridDimensions() {
-        return gridDimensions;
+    public Grid gridDimensions() {
+        return grid;
     }
 
     public Position position() {
@@ -28,7 +28,7 @@ public class InputCommand {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         InputCommand that = (InputCommand) o;
-        return Objects.equals(gridDimensions, that.gridDimensions) &&
+        return Objects.equals(grid, that.grid) &&
                 Objects.equals(position, that.position) &&
                 Objects.equals(navigationInstructions, that.navigationInstructions);
     }
@@ -36,6 +36,6 @@ public class InputCommand {
     @Override
     public int hashCode() {
 
-        return Objects.hash(gridDimensions, position, navigationInstructions);
+        return Objects.hash(grid, position, navigationInstructions);
     }
 }

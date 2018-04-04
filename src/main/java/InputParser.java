@@ -2,7 +2,7 @@ public class InputParser {
     public static InputCommand parse(String inputCommand) {
         String[] splitByNewLine = inputCommand.split("\\n");
         String[] dimensionsAsArray = splitByNewLine[0].split(" ");
-        Dimensions dimensions = new Dimensions(
+        Grid grid = new Grid(
                 Integer.parseInt(dimensionsAsArray[0]),
                 Integer.parseInt(dimensionsAsArray[1])
         );
@@ -22,6 +22,6 @@ public class InputParser {
 
         String navigationInstruction = splitByNewLine[2];
 
-        return new InputCommand(dimensions, position, navigationInstruction);
+        return new InputCommand(grid, position, navigationInstruction);
     }
 }
